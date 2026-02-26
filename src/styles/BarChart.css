@@ -1,0 +1,40 @@
+/* BarChart.css */
+.chart-container {
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.chart-container h2 {
+  color: #667eea;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.chart-container button {
+  padding: 10px 20px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95em;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.chart-container button:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.chart-wrapper {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+}
