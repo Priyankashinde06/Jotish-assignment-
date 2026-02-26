@@ -34,7 +34,7 @@ const SalaryChart = () => {
 
   if (loading) {
     return (
-      <div className="chart-container" style={{ textAlign: 'center', padding: '50px' }}>
+      <div  style={{ textAlign: 'center', padding: '50px', color: 'white', fontSize: '1.5rem' }}>
         <div className="loading"></div>
         <p>Loading chart data...</p>
       </div>

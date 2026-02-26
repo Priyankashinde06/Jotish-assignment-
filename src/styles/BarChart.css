@@ -48,7 +48,6 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Loading Animation */
 
 /* Fade In Animation */
 .fade-in {
@@ -93,4 +92,47 @@
   border: none !important;
   border-radius: 10px !important;
   padding: 10px !important;
+}
+
+/* Mobile Devices - Added without changing existing code */
+@media screen and (max-width: 480px) {
+  .chart-container {
+    margin: 0.5rem;
+    padding: 0.8rem;
+  }
+  
+  .chart-container h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .chart-container button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .chart-wrapper {
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .chart-container {
+    margin: 0.3rem;
+    padding: 0.5rem;
+  }
+  
+  .chart-container h2 {
+    font-size: 1.1rem;
+  }
+  
+  .chart-container button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .chart-wrapper {
+    padding: 0.3rem;
+  }
 }

@@ -197,7 +197,7 @@
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border-top-color: white;
-  animation: spin 0.8s linear infinite;
+  animation: spin 0.9s linear infinite;
 }
 
 /* Error message */
@@ -363,5 +363,75 @@
   
   .login-container input::placeholder {
     color: #718096;
+  }
+}
+/* Mobile Devices - Added without changing existing code */
+@media screen and (max-width: 480px) {
+  .login-container {
+    padding: 15px;
+  }
+  
+  .login-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .login-container h2::after {
+    bottom: -5px;
+  }
+  
+  .login-container form {
+    padding: 25px 20px;
+    border-radius: 25px;
+  }
+  
+  .login-container label {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+  }
+  
+  .login-container input {
+    padding: 12px 15px;
+    font-size: 0.95rem;
+    border-radius: 14px;
+  }
+  
+  .login-container button {
+    padding: 14px;
+    font-size: 1rem;
+  }
+  
+  .login-container form > p {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+  
+  .login-container form > p:last-of-type {
+    font-size: 0.8rem;
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .login-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .login-container form {
+    padding: 20px 15px;
+  }
+  
+  .login-container input {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .login-container button {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  
+  .login-container form > p {
+    font-size: 0.8rem;
   }
 }

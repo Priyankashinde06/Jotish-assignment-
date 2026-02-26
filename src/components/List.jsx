@@ -51,7 +51,7 @@ const List = () => {
 
   if (loading) {
     return (
-      <div className="list-container" style={{ textAlign: 'center', padding: '50px' }}>
+      <div className="list-container" style={{ textAlign: 'center', padding: '50px', color: 'white', fontSize: '1.5rem' }}>
         <div className="loading"></div>
         <p>Loading data...</p>
       </div>

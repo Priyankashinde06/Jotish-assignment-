@@ -54,7 +54,7 @@ const MapView = () => {
 
   if (loading) {
     return (
-      <div className="map-container" style={{ textAlign: 'center', padding: '50px' }}>
+      <div style={{ textAlign: 'center', padding: '50px' , color: 'white' , fontSize: '1.5rem'}}>
         <div className="loading"></div>
         <p>Loading map data...</p>
       </div>
@@ -72,7 +72,7 @@ const MapView = () => {
         </div>
       ) : (
         <>
-          <MapContainer center={[20, 0]} zoom={2} style={{ height: "500px", width: "100%", marginTop: "20px" }}>
+          <MapContainer center={[20, 0]} zoom={2} style={{ height: "385px", width: "100%", marginTop: "10px" }}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

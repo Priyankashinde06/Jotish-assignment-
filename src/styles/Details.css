@@ -379,8 +379,6 @@ body {
   }
 }
 
-/* Loading animation for camera */
-
 
 .camera-view:hover::before {
   opacity: 1;
@@ -408,4 +406,86 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-gradient);
+}
+
+/* Mobile Devices - Added without changing existing code */
+@media screen and (max-width: 480px) {
+  .details-container {
+    padding: 0.8rem;
+  }
+  
+  .details-container h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .details-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .detail-item {
+    padding: 0.7rem;
+  }
+  
+  .detail-item:hover {
+    transform: translateX(3px);
+  }
+  
+  .detail-label {
+    font-size: 0.75rem;
+  }
+  
+  .detail-value {
+    font-size: 0.95rem;
+  }
+  
+  .camera-section {
+    min-height: 300px;
+    padding: 1rem;
+  }
+  
+  .camera-view video {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+  }
+  
+  .camera-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .camera-controls .btn-primary,
+  .camera-controls .btn-secondary {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .btn-back-list {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .details-container h2 {
+    font-size: 1.3rem;
+  }
+  
+  .details-card {
+    padding: 0.8rem;
+  }
+  
+  .detail-item {
+    padding: 0.5rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-back-list {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
 }
