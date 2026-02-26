@@ -22,7 +22,7 @@
 }
 
 /* Animated background shapes */
-.login-container::before {
+/* .login-container::before {
   content: '';
   position: absolute;
   width: 150%;
@@ -33,7 +33,7 @@
   opacity: 0.1;
   animation: rotate 20s linear infinite;
   z-index: 1;
-}
+} */
 
 .login-container::after {
   content: '';

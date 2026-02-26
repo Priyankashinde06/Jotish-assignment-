@@ -2,7 +2,7 @@
 .chart-container {
   max-width: 1200px;
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 1.5rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 30px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -49,20 +49,6 @@
 }
 
 /* Loading Animation */
-.loading {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 5px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  border-top-color: white;
-  animation: spin 1s ease-in-out infinite;
-  margin-bottom: 1rem;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
 
 /* Fade In Animation */
 .fade-in {

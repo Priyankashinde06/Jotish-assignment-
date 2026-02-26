@@ -1,43 +1,75 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../styles/PhotoResult.css'; // Ensure you have this CSS file
+import '../styles/PhotoResult.css';
 
 const PhotoResult = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Extract photo AND the itemData
   const photo = location.state?.photo;
   const itemData = location.state?.itemData;
 
   if (!photo) {
     return (
       <div className="photo-result-container">
-        <h3>No photo captured.</h3>
-        <button onClick={() => navigate('/list')}>Go to List</button>
+        <div className="error-state">
+          <span className="error-icon">📷</span>
+          <h3>No photo captured</h3>
+          <p>Looks like you haven't taken any photos yet</p>
+          <button onClick={() => navigate('/list')} className="btn-glow">
+            Return to Gallery
+          </button>
+        </div>
       </div>
     );
   }
 
   const handleRetake = () => {
-    // Navigate back to details, passing the itemData back
     navigate('/details', { state: { item: itemData } });
   };
 
   return (
     <div className="photo-result-container">
-      <h2>Captured Photo</h2>
+      <div className="photo-result-header">
+        <h2>Photo Preview</h2>
+        <p className="subtitle">Review your captured moment</p>
+      </div>
       
-      <div className="photo-card">
-        <img src={photo} alt="Captured" className="captured-image" />
+      <div className="photo-showcase">
+        <div className="photo-frame">
+          <div className="photo-wrapper">
+            <img src={photo} alt="Captured" className="captured-image" />
+            <div className="photo-overlay">
+              <span className="badge">✓ Captured</span>
+            </div>
+          </div>
+        </div>
         
-        <div className="photo-actions">
-          {/* This button now correctly goes back to Details */}
-          <button onClick={handleRetake} className="btn-primary">
-            📸 Take Another
+        <div className="photo-metadata">
+          <div className="metadata-item">
+            <span className="metadata-label">📅 Date</span>
+            <span className="metadata-value">{new Date().toLocaleDateString()}</span>
+          </div>
+          <div className="metadata-item">
+            <span className="metadata-label">⏰ Time</span>
+            <span className="metadata-value">{new Date().toLocaleTimeString()}</span>
+          </div>
+          <div className="metadata-item">
+            <span className="metadata-label">📸 Quality</span>
+            <span className="metadata-value">HD Ready</span>
+          </div>
+        </div>
+        
+        <div className="action-panel">
+          <button onClick={handleRetake} className="btn-action btn-retake">
+            <span className="btn-icon">🔄 </span>
+            <span className="btn-text">Retake Photo</span>
+            <span className="btn-hint">Try again</span>
           </button>
           
-          <button onClick={() => navigate('/list')} className="btn-secondary">
-            ← Back to List
+          <button onClick={() => navigate('/list')} className="btn-action btn-save">
+            <span className="btn-icon">✓</span>
+            <span className="btn-text">Use This Photo</span>
+            <span className="btn-hint">Save to gallery</span>
           </button>
         </div>
       </div>

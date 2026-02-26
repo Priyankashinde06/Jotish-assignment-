@@ -1,11 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
-import '../styles/Details.css'; // Make sure path matches your folder structure
+import '../styles/Details.css';
 
 const Details = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  // We receive the item here
   const item = location.state?.item;
   
   const videoRef = useRef(null);
@@ -14,7 +13,6 @@ const Details = () => {
   const [stream, setStream] = useState(null);
   const [error, setError] = useState(null);
 
-  // If no item, redirect to list
   if (!item) {
     return (
       <div className="details-container" style={{ textAlign: 'center', padding: '50px' }}>
@@ -52,10 +50,23 @@ const Details = () => {
     
     if (video && canvas && video.videoWidth > 0) {
       const context = canvas.getContext('2d');
+      
+      // Set canvas size to match video
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
+
+      // --- CHANGE 2: Mirror the captured image ---
+      // We need to flip the context before drawing so the photo matches the preview
+      context.translate(canvas.width, 0);
+      context.scale(-1, 1);
+      
+      // Draw the image
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       
+      // Reset transformation (good practice)
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      // ------------------------------------------
+
       const imageData = canvas.toDataURL('image/png');
       
       if (stream) {
@@ -64,7 +75,6 @@ const Details = () => {
       setIsCameraOpen(false);
       setStream(null);
 
-      // CRITICAL: Pass the 'item' back to PhotoResult so we don't lose it
       navigate('/photo-result', { state: { photo: imageData, itemData: item } });
     } else {
       alert("Video not ready.");
@@ -84,7 +94,7 @@ const Details = () => {
   return (
     <div className="details-container fade-in">
       <h2>Details Page</h2>
-      <button onClick={() => navigate('/list')} className="btn-secondary">← Back to List</button>
+      <button onClick={() => navigate('/list')} className="btn-back-list">← Back to List</button>
       
       <div className="details-card">
         <div className="details-info">
@@ -108,7 +118,14 @@ const Details = () => {
                 autoPlay 
                 playsInline 
                 muted
-                style={{ width: '100%', maxWidth: '500px', background: '#000', borderRadius: '8px' }}
+                style={{ 
+                  width: '100%', 
+                  maxWidth: '500px', 
+                  background: '#000', 
+                  borderRadius: '8px',
+                  // --- CHANGE 1: Mirror the video preview ---
+                  transform: 'scaleX(-1)' 
+                }}
               ></video>
               <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
               <div className="camera-controls">
