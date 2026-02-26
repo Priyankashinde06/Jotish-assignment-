@@ -1,10 +1,13 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../styles/PhotoResult.css';
+import '../styles/PhotoResult.css'; // Ensure you have this CSS file
 
 const PhotoResult = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  
+  // Extract photo AND the itemData
   const photo = location.state?.photo;
+  const itemData = location.state?.itemData;
 
   if (!photo) {
     return (
@@ -15,20 +18,28 @@ const PhotoResult = () => {
     );
   }
 
+  const handleRetake = () => {
+    // Navigate back to details, passing the itemData back
+    navigate('/details', { state: { item: itemData } });
+  };
+
   return (
-    <div className="photo-result-container fade-in">
+    <div className="photo-result-container">
       <h2>Captured Photo</h2>
-      <div className="photo-frame">
-        <img src={photo} alt="Captured" />
-      </div>
-      <div>
-        <button onClick={() => navigate('/list')}>← Back to List</button>
-        <button 
-          onClick={() => window.location.reload()} 
-          style={{ marginLeft: '10px', background: '#28a745' }}
-        >
-          📸 Take Another
-        </button>
+      
+      <div className="photo-card">
+        <img src={photo} alt="Captured" className="captured-image" />
+        
+        <div className="photo-actions">
+          {/* This button now correctly goes back to Details */}
+          <button onClick={handleRetake} className="btn-primary">
+            📸 Take Another
+          </button>
+          
+          <button onClick={() => navigate('/list')} className="btn-secondary">
+            ← Back to List
+          </button>
+        </div>
       </div>
     </div>
   );
