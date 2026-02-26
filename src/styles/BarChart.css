@@ -1,40 +1,110 @@
 /* BarChart.css */
 .chart-container {
-  padding: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .chart-container h2 {
-  color: #667eea;
-  margin-bottom: 20px;
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  font-weight: 300;
-  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .chart-container button {
-  padding: 10px 20px;
-  background: #667eea;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   color: white;
-  border: none;
-  border-radius: 5px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 0.95em;
-  display: block;
-  margin: 0 auto 20px;
+  margin-bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .chart-container button:hover {
-  background: #764ba2;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .chart-wrapper {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Fade In Animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chart-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .chart-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .chart-wrapper {
+    padding: 1rem;
+  }
+}
+
+/* Custom Tooltip Styling (will be applied by recharts) */
+.recharts-tooltip-wrapper {
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.recharts-default-tooltip {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(5px);
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 10px !important;
 }

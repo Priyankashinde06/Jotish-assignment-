@@ -53,7 +53,7 @@ const Login = () => {
             disabled={loading}
           />
         </div>
-        {error && <p style={{ color: '#ff6b6b', background: 'rgba(255,255,255,0.2)' }}>{error}</p>}
+        {error && <p style={{ color: '#ffffff', background: 'rgba(255,255,255,0.2)' }}>{error}</p>}
         <button type="submit" disabled={loading}>
           {loading ? <span className="loading"></span> : 'Sign In'}
         </button>
