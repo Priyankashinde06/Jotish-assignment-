@@ -2,8 +2,6 @@
 
 A comprehensive React application built as part of the Jotish Internship Assignment. This dashboard provides employee data visualization, camera integration, and interactive mapping features with a secure authentication system.
 
-## 📋 Assignment Requirements Fulfilled
-
 ### Core Requirements (4 Screens)
 - ✅ **Login Page** - Authentication with testuser/Test123
 - ✅ **List Page** - Display data from REST API with dynamic table
@@ -207,4 +205,5 @@ Maps not displaying:
     Internet required for tile layers
 
     Leaflet CSS must be loaded
+
 
