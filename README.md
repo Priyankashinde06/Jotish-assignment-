@@ -84,7 +84,7 @@ text
 
 1. Clone the repository
 
-       git clone <your-repository-url>
+       git clone <https://github.com/Priyankashinde06/Jotish-assignment->
        cd jotish-assignment
 
 2. Install dependencies
@@ -207,3 +207,4 @@ Maps not displaying:
     Internet required for tile layers
 
     Leaflet CSS must be loaded
+
